@@ -56,6 +56,9 @@ allow dom0_t xen_t:resource setup;
 
 domio_map_rw_mmu(dom0_t)
 
+# allow dom0 to be a device model for HVMs (no-stubdom case)
+allow dom0_t hvm_guest_t:hvm dm;
+
 # dom0 access to service VMs
 ndvm_manage_resource(dom0_t)
 ndvm_send_v4v(dom0_t)
